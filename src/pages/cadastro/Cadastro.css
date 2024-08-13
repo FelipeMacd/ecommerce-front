@@ -1,7 +1,7 @@
 .fundoCadastro {
-    background-image: url(../../assets/cadastro.png);
+    background-image: url(../../assets/cadastro.jpg);
       background-repeat: no-repeat;
-      width: 100%;
+      width: 80%;
       min-height: 100vh;
       background-size: cover;
       background-position: center;
