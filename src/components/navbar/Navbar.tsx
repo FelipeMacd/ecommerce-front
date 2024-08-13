@@ -14,10 +14,10 @@ function Navbar() {
             <div><img src="" alt="" /></div>
 
             <div className='flex gap-4'>
+              <div><Link to='/login' className='hover:underline'>Login</Link></div>              
               <div><Link to='/home' className='hover:underline'>Home</Link></div>
               <div><Link to='/contato' className='hover:underline'>Contato</Link></div>
               <div><Link to='/sobrenos' className='hover:underline'>Sobre Nós</Link></div>
-              
             </div>
           </div>
         </div>
