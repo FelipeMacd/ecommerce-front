@@ -4,7 +4,7 @@ import {
   ServerIcon,
 } from "@heroicons/react/20/solid";
 
-import sobre from "../../assets/sobre.jpg";
+import sobre from "../../assets/sobre.png";
 
 export default function SobreNos() {
   return (

@@ -1,25 +1,20 @@
-import React from 'react'
-import { FacebookLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react'
+import React from "react";
 
 function Footer() {
- 
-  
-
   return (
     <>
-        <div className="flex justify-center bg-indigo-900 text-white">
-          <div className="container flex flex-col items-center py-4">
-            <p className='text-xl font-bold'>Projeto Integrador | Copyright: </p>
-            <p className='text-lg'>Acesse nossas redes sociais</p>
-            <div className='flex gap-2'>
-              <LinkedinLogo size={48} weight='bold' />
-              <InstagramLogo size={48} weight='bold' />
-              <FacebookLogo size={48} weight='bold' />
-            </div>
-          </div>
-        </div>
-      </>
-  )
+       <footer
+      className="bg-neutral-200 text-center dark:bg-neutral-700 lg:text-left">
+      <div className="p-4 text-center text-neutral-700 dark:text-neutral-200">
+        © 2024 Copyright: 
+        <a
+          className="text-neutral-800 dark:text-neutral-400"
+          href="https://github.com/mulheresemfoco"
+        > Projeto Integrador</a>
+      </div>
+    </footer>
+    </>
+  );
 }
 
-export default Footer
+export default Footer;
