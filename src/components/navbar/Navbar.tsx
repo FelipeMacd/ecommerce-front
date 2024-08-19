@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems} from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,7 +7,8 @@ import homeLogo from "../../assets/logo-mulheres-em-foco-sem-fundo.png";
 
 const navigation = [
   { name: "Login", link: "/login", current: false },
-  { name: "Home", link: "/", current: false },
+  { name: "Categorias", link: "/categorias", current: false },
+  { name: "Cadastrar Categorias", link: "/cadastroCategoria", current: false },
   { name: "Contato", link: "/contato", current: false },
   { name: "Sobre Nós", link: "/sobrenos", current: false },
 ];
