@@ -7,6 +7,7 @@ import homeLogo from "../../assets/logo-mulheres-em-foco-sem-fundo.png";
 
 const navigation = [
   { name: "Login", link: "/login", current: false },
+  { name: "Cursos", link: "/cursos", current: false },
   { name: "Categorias", link: "/categorias", current: false },
   { name: "Cadastrar Categorias", link: "/cadastroCategoria", current: false },
   { name: "Contato", link: "/contato", current: false },
