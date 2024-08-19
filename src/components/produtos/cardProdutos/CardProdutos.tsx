@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Produto from '../../../models/Produto'
+import sobre from '../../../assets/sobre.jpg'
 
 interface CardProdutoProps {
     produto: Produto
@@ -10,15 +11,14 @@ function CardProduto({produto}: CardProdutoProps) {
       <div className='border-slate-950 border flex flex-col rounded overflow-hidden justify-between'>
         <div>
           <div className="flex w-full bg-sky-500 py-2 px-4 items-center gap-4">
-            <img src={produto.usuario?.foto} className='h-12 rounded-full' alt="" />
-            <h3 className='text-lg font-bold text-center uppercase '>{produto.usuario?.nome}</h3>
+          <h3 className='text-lg font-bold text-center uppercase '>{produto.nome}</h3>
           </div>
           <div className='p-4 '>
-            <h4 className='text-lg font-semibold uppercase pb-3'>{produto.nome}</h4>
+            <img src={sobre} alt="" />
             <p>{produto.descricao}</p>
-            <p className='font-semibold py-4'>Categoria: {produto.categoria?.categoria}</p>
-            <p className='font-semibold py-4'>Instrutor: {produto.instrutor}</p>
-            <p className='font-semibold py-4'>Preço: R${produto.preco}</p>
+            <p className='font-semibold py-2'>Categoria: {produto.categoria?.categoria}</p>
+            <p className='font-semibold'>Instrutor: {produto.instrutor}</p>
+            <p className='font-semibold py-2'>Preço: R${produto.preco}</p>
           </div>
         </div>
         <div className="flex">

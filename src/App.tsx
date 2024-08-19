@@ -1,7 +1,7 @@
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from './contexts/AuthContext';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import "./App.css";
 import Home from "./pages/home/Home";
@@ -27,7 +27,7 @@ function App() {
           <Navbar />
           <div className="min-h-[80vh]">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/contato" element={<Contato />} />
