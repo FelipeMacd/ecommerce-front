@@ -7,11 +7,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'roxo': '#54343f',
-        'rosa': '#e77a77',
-        'laranja': '#f6a570',
-        'amarelo': '#f9df94',
-        'cinza': '#cad5ad'
+        'salmao': '#ee715d',
+        'rosa-claro': '#fbbc9b',
+        'verde': '#244c54',
+        'azul-claro': '#6b8994',
+        'cinza': '#c2c9cd'
       }
     },
   },
