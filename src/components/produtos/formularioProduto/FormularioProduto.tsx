@@ -30,7 +30,6 @@ function FormularioProduto() {
     preco: 0,
     instrutor: '',
     categoria: null,
-    usuario: null,
   });
 
   async function buscarProdutoPorId(id: string) {
@@ -85,7 +84,6 @@ function FormularioProduto() {
       ...produto,
       [e.target.name]: e.target.value,
       categoria: categoria,
-      usuario: usuario,
     });
   }
 
