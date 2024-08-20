@@ -90,7 +90,7 @@ function FormularioProduto() {
   }
 
   function retornar() {
-    navigate('/postagens');
+    navigate('/produtos');
   }
 
   async function gerarNovaProduto(e: ChangeEvent<HTMLFormElement>) {
@@ -156,13 +156,25 @@ function FormularioProduto() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descrição">Descrição do Curso</label>
+          <label htmlFor="descricao">Descrição do Curso</label>
           <input
             value={produto.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             type="text"
             placeholder="Descrição (Mínimo 10 caracteres)"
-            name="texto"
+            name="descricao"
+            required
+            className="border-2 border-slate-700 rounded p-2"
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="instrutor">Instrutora</label>
+          <input
+            value={produto.instrutor}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+            type="text"
+            placeholder="Nome e Sobrenome"
+            name="instrutor"
             required
             className="border-2 border-slate-700 rounded p-2"
           />
@@ -172,9 +184,9 @@ function FormularioProduto() {
           <input
             value={produto.preco}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-            type="text"
+            type="number"
             placeholder="Valor do curso"
-            name="texto"
+            name="preco"
             required
             className="border-2 border-slate-700 rounded p-2"
           />
