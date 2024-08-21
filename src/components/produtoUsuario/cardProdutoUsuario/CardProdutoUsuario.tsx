@@ -5,7 +5,7 @@ interface CardProdutoProps {
   produto: Produto;
 }
 
-function CardProduto({ produto }: CardProdutoProps) {
+function CardProdutoUsuario({ produto }: CardProdutoProps) {
   const notaAvaliacao = Math.random() * (5 - 4.2) + 4.2;
   const quantidadeAvaliaçoes = Math.random() * (360 - 150) + 150;
 
@@ -48,4 +48,4 @@ function CardProduto({ produto }: CardProdutoProps) {
   );
 }
 
-export default CardProduto;
+export default CardProdutoUsuario;

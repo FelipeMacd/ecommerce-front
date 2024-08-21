@@ -7,20 +7,28 @@ interface CardCategoriaProps {
 
 function CardCategoria({ categoria }: CardCategoriaProps) {
     return (
-        <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-            <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>Categorias</header>
-            <p className='px-8 pt-3 text-2xl bg-slate-200 uppercase h-full'>{categoria.categoria}</p>
-            <p className='px-8 p-2 text-xl bg-slate-200 h-full'>{categoria.tipo}</p>
-            <div className="flex">
-                <Link to={`/editarCategoria/${categoria.id}`} className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
-                    <button>Editar</button>
-                </Link>
-                <Link to={`/deletarCategoria/${categoria.id}`} className='text-slate-100 bg-red-400 hover:bg-red-700 w-full flex items-center justify-center'>
-                    <button>Deletar</button>
-                </Link>
+        <div className='border rounded-lg shadow-lg p-4 flex flex-col justify-between text-center transition-all duration-300 hover:shadow-2xl'>
+            <p className='text-gray-800 font-semibold text-lg'>
+                {categoria.tipo}
+            </p>
+
+            <h2 className='text-3xl font-bold text-salmao'>
+                {categoria.categoria}
+            </h2>
+
+            <div className='mt-4'>
+                <div className="flex justify-center">
+                    <Link to={`/editarCategoria/${categoria.id}`} className='w-1/2 text-white bg-azul-claro hover:bg-verde transition-all duration-300 py-2 flex justify-center items-center font-semibold'>
+                        <button>Editar</button>
+                    </Link>
+                    <Link to={`/deletarCategoria/${categoria.id}`} className='w-1/2 text-white bg-salmao hover:bg-red-700 transition-all duration-300 py-2 flex justify-center items-center font-semibold'>
+                        <button>Deletar</button>
+                    </Link>
+                </div>
             </div>
         </div>
     )
 }
 
 export default CardCategoria
+

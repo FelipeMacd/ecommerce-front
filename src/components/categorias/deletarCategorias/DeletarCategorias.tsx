@@ -1,87 +1,136 @@
-import { useContext, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router'
-import { AuthContext } from '../../../contexts/AuthContext'
-import Categoria from '../../../models/Categoria'
-import { buscar, deletar } from '../../../service/Service'
-import { toastAlerta } from '../../../utils/toastAlerta'
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
+import { AuthContext } from "../../../contexts/AuthContext";
+import Categoria from "../../../models/Categoria";
+import { buscar, deletar } from "../../../service/Service";
+import { toastAlerta } from "../../../utils/toastAlerta";
 
 function DeletarCategoria() {
-    const [categoria, setCategoria] = useState<Categoria>({} as Categoria)
+  const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
 
-    let navigate = useNavigate()
+  let navigate = useNavigate();
 
-    const { id } = useParams<{ id: string }>()
+  const { id } = useParams<{ id: string }>();
 
-    const { usuario, handleLogout } = useContext(AuthContext)
-    const token = usuario.token
+  const { usuario, handleLogout } = useContext(AuthContext);
+  const token = usuario.token;
 
-    async function buscarPorId(id: string) {
-        try {
-            await buscar(`/categorias/${id}`, setCategoria, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-        } catch (error: any) {
-            if (error.toString().includes('403')) {
-                toastAlerta('O token expirou, favor logar novamente', 'info')
-                handleLogout()
-            }
-        }
+  async function buscarPorId(id: string) {
+    try {
+      await buscar(`/categorias/${id}`, setCategoria, {
+        headers: {
+          Authorization: token,
+        },
+      });
+    } catch (error: any) {
+      if (error.toString().includes("403")) {
+        toastAlerta("O token expirou, favor logar novamente", "info");
+        handleLogout();
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (token === "") {
+      toastAlerta("Você precisa estar logado", "info");
+      navigate("/login");
+    }
+  }, [token]);
+
+  useEffect(() => {
+    if (id !== undefined) {
+      buscarPorId(id);
+    }
+  }, [id]);
+
+  function retornar() {
+    navigate("/categorias");
+  }
+
+  async function deletarCategoria() {
+    try {
+      await deletar(`/categorias/${id}`, {
+        headers: {
+          Authorization: token,
+        },
+      });
+
+      toastAlerta("Categoria apagado com sucesso", "sucesso");
+    } catch (error) {
+      toastAlerta("Erro ao apagar o Categoria", "erro");
     }
 
-    useEffect(() => {
-        if (token === '') {
-            toastAlerta('Você precisa estar logado', 'info')
-            navigate('/login')
-        }
-    }, [token])
+    retornar();
+  }
+  return (
+    <div
+      className="relative z-10"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+        aria-hidden="true"
+      ></div>
 
-    useEffect(() => {
-        if (id !== undefined) {
-            buscarPorId(id)
-        }
-    }, [id])
-
-    function retornar() {
-        navigate("/categorias")
-    }
-
-    async function deletarCategoria() {
-        try {
-            await deletar(`/categorias/${id}`, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-
-            toastAlerta('Categoria apagado com sucesso', 'sucesso')
-
-        } catch (error) {
-            toastAlerta('Erro ao apagar o Categoria', 'erro')
-        }
-
-        retornar()
-    }
-    return (
-        <div className='container w-1/3 mx-auto'>
-            <h1 className='text-4xl text-center my-4'>Deletar categoria</h1>
-
-            <p className='text-center font-semibold mb-4'>Você tem certeza de que deseja apagar o categoria a seguir?</p>
-
-            <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-            <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>Categorias</header>
-            <p className='px-8 pt-3 text-2xl bg-slate-200 uppercase h-full'>{categoria.categoria}</p>
-            <p className='px-8 p-2 text-xl bg-slate-200 h-full'>{categoria.tipo}</p>
-                <div className="flex">
-                    <button className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2' onClick={retornar}>Não</button>
-                    <button className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center' onClick={deletarCategoria}>
-                        Sim
-                    </button>
+      <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+            <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+              <div className="sm:flex sm:items-start">
+                <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                  <svg
+                    className="h-6 w-6 text-red-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                    />
+                  </svg>
                 </div>
+                <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                  <h4
+                    className="text-lg font-semibold leading-6 uppercase text-gray-900"
+                    id="modal-title"
+                  >
+                    Deletar categoria
+                  </h4>
+                  <div className="mt-2">
+                    <p className="text-sm text-black">
+                        Você tem certeza de que deseja apagar a categoria <span className="font-bold">{categoria.categoria}</span> do tipo <b>{categoria.tipo}</b>? Essa ação não poderá ser desfeita.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+            <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              <button
+                type="button"
+                onClick={deletarCategoria}
+                className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+              >
+                Deletar
+              </button>
+              <button
+                type="button"
+                onClick={retornar}
+                className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
 
-export default DeletarCategoria
+export default DeletarCategoria;

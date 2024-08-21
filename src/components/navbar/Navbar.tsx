@@ -1,89 +1,104 @@
-import { useContext } from 'react'
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems} from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from '../../contexts/AuthContext'
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 import homeLogo from "../../assets/logo-mulheres-em-foco-sem-fundo.png";
+import { Menu } from '@headlessui/react';
+import { UserIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
   { name: "Login", link: "/login", current: false },
   { name: "Cursos", link: "/produtos", current: false },
   { name: "Categorias", link: "/categorias", current: false },
-  { name: "Cadastrar Categorias", link: "/cadastroCategoria", current: false },
   { name: "Contato", link: "/contato", current: false },
-  { name: "Sobre Nós", link: "/sobrenos", current: false },
 ];
 
 function Navbar() {
-  let navigate = useNavigate()
-
-  const { usuario, handleLogout } = useContext(AuthContext)
+  let navigate = useNavigate();
+  const { usuario, handleLogout } = useContext(AuthContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function logout() {
-    handleLogout()
-    alert('Usuário deslogado com sucesso')
-    navigate('/login')
-}
-
-let navbarComponent
+    handleLogout();
+    alert('Usuário deslogado com sucesso');
+    navigate('/login');
+  }
 
   return (
-    <nav className="bg-white border-gray-200 py-2.5 dark:bg-verde">
-    <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-        <Link to='/home' className="flex items-center">
-            <img className="h-12 w-auto" src={homeLogo} alt="" />
-            <span className="self-center text-xl font-bold whitespace-nowrap uppercase dark:text-white">Mulheres em foco</span>
-        </Link>
-        <div className="flex items-center lg:order-2">
-            <div className="hidden mt-2 mr-4 sm:inline-block">
-                <span></span>
-            </div>
+    <nav className="bg-verde shadow-lg border-b-2 border-salmao">
+      <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto py-3">
 
-            <Link href="https://themesberg.com/product/tailwind-css/landing-page"
-                className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">Download</Link>
-            <button data-collapse-toggle="mobile-menu-2" type="button"
-				className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-				aria-controls="mobile-menu-2" aria-expanded="true">
-				<span className="sr-only">Open main menu</span>
-				<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd"
-						d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-						clip-rule="evenodd"></path>
-				</svg>
-				<svg className="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd"
-						d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-						clip-rule="evenodd"></path>
-				</svg>
-			</button>
+        <Link to="/home" className="flex items-center">
+          <img className="h-16 w-16" src={homeLogo} alt="Logo Mulheres em Foco" />
+        </Link>
+
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          type="button"
+          className="inline-flex items-center p-2 ml-3 text-cinza rounded-lg lg:hidden hover:bg-verde-700 focus:outline-none focus:ring-2 focus:ring-verde-600"
+          aria-controls="mobile-menu"
+          aria-expanded={isMenuOpen}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"} />
+          </svg>
+        </button>
+
+        <div className={`lg:flex lg:items-center lg:w-auto ${isMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
+          <ul className="flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0 font-medium">
+            {navigation.map((item, index) => (
+              <li key={index}>
+                <Link
+                  to={item.link}
+                  className="block py-2 pr-4 pl-3 text-lg text-cinza hover:text-rosa-claro transition-colors duration-300"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="items-center justify-between w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-            <ul className="flex flex-col mt-4 font-medium text-xl lg:flex-row lg:space-x-8 lg:mt-0">            
-                <li>
-                    <Link to='/produtos'
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Cursos</Link>
-                </li>
-                <li>
-                    <Link to='/categorias'
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Categorias</Link>
-                </li>
-                <li>
-                    <Link to='/sobrenos'
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Sobre Nós</Link>
-                </li>
-                <li>
-                    <Link to='/contato'
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contato</Link>
-                </li>
-                <li>
-                    <Link to=''
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"></Link>
-                </li>
-            </ul>
+
+        {/* User Info and Profile Menu */}
+        <div className="relative flex items-center space-x-4">
+          {usuario ? (
+            <Menu as="div" className="relative">
+              <div>
+                <Menu.Button className="flex items-center p-2 rounded-full bg-gray-800 text-sm text-gray-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                  <span className="sr-only">Open user menu</span>
+                  <UserIcon className="w-8 h-8" />
+                </Menu.Button>
+              </div>
+              <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Item>
+                  <Link
+                    to="/seu-perfil"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Seu Perfil
+                  </Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <button
+                    onClick={logout}
+                    className="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Sair
+                  </button>
+                </Menu.Item>
+              </Menu.Items>
+            </Menu>
+          ) : (
+            <Link
+              to="/login"
+              className="text-white bg-azul-claro hover:bg-verde-700 transition-all duration-300 py-2 px-4 rounded-lg font-semibold"
+            >
+              Login
+            </Link>
+          )}
         </div>
-    </div>
-</nav>
-  )
+      </div>
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;
