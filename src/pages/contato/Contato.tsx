@@ -1,6 +1,24 @@
-import React from "react";
+import { useState } from 'react';
 
 function Contato() {
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = () => {
+    setError('');
+
+    if (!name || !email || !message) {
+      setError('Por favor, preencha todos os campos obrigatórios.');
+      return;
+    }
+
+    alert('Mensagem enviada com sucesso!');
+
+  };
+
   return (
     <section className="bg-blue-50 dark:bg-white" id="contact">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
@@ -103,8 +121,10 @@ function Contato() {
                         type="text"
                         id="name"
                         placeholder="Nome completo"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         required
-                        className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0"
+                        className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-black sm:mb-0"
                         name="name"
                       />
                     </div>
@@ -117,8 +137,10 @@ function Contato() {
                         type="email"
                         id="email"
                         placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0"
+                        className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-black sm:mb-0"
                         name="email"
                       />
                     </div>
@@ -129,17 +151,20 @@ function Contato() {
                       className="pb-1 text-xs uppercase tracking-wider"
                     ></label>
                     <textarea
-                      id="textarea"
+                      id="message"
                       name="textarea"
                       placeholder="Sua mensagem..."
+                      value={message}
+                        onChange={(e) => setMessage(e.target.value)}
                       required
-                      className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0 grid-cols-5 gap-4"
+                      className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-black sm:mb-0 grid-cols-5 gap-4"
                     ></textarea>
                   </div>
                 </div>
                 <div className="text-center">
+                  {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
                   <button
-                    onClick={() => alert('Mensagem enviada!')}
+                    onClick={handleSubmit}
                     className="w-full bg-salmao hover:border-black text-white px-6 py-3 font-xl rounded-md sm:mb-0"
                   >
                     Enviar Mensangem
