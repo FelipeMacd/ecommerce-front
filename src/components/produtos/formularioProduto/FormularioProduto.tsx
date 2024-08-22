@@ -138,11 +138,11 @@ function FormularioProduto() {
 
   return (
     <div className="container flex flex-col mx-auto items-center">
-      <h1 className="text-4xl text-center my-8">{id !== undefined ? 'Editar Produto' : 'Cadastrar Produto'}</h1>
+      <h1 className="text-verde text-3xl font-semibold uppercase text-center my-8">{id !== undefined ? 'Editar Produto' : 'Cadastrar Produto'}</h1>
 
       <form onSubmit={gerarNovaProduto} className="flex flex-col w-1/2 gap-4">
         <div className="flex flex-col gap-2">
-          <label htmlFor="nome">Nome do Curso</label>
+          <label htmlFor="nome" className='text-base font-medium'>Nome do Curso</label>
           <input
             value={produto.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -150,11 +150,11 @@ function FormularioProduto() {
             placeholder="Nome do Curso"
             name="nome"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-slate-700 hover:border-cinza rounded p-2"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Descrição do Curso</label>
+          <label htmlFor="descricao" className='text-base font-medium'>Descrição do Curso</label>
           <input
             value={produto.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -162,11 +162,11 @@ function FormularioProduto() {
             placeholder="Descrição (Mínimo 10 caracteres)"
             name="descricao"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-slate-700 hover:border-cinza rounded p-2"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="instrutor">Instrutora</label>
+          <label htmlFor="instrutor" className='text-base font-medium'>Instrutora</label>
           <input
             value={produto.instrutor}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -174,11 +174,11 @@ function FormularioProduto() {
             placeholder="Nome e Sobrenome"
             name="instrutor"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-slate-700 hover:border-cinza rounded p-2"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="preco">Preço do Curso</label>
+          <label htmlFor="preco" className='text-base font-medium'>Preço do Curso</label>
           <input
             value={produto.preco}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -186,13 +186,13 @@ function FormularioProduto() {
             placeholder="Valor do curso"
             name="preco"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-slate-700 hover:border-cinza rounded p-2"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <p>Categoria do Curso</p>
-          <select name="categoria" id="categoria" className='border p-2 border-slate-800 rounded' onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}>
-            <option value="" selected disabled>Selecione uma Categoria</option>
+          <p className='text-base font-medium'>Categoria do Curso</p>
+          <select name="categoria" id="categoria" className='border-2 p-2 border-slate-700 hover:border-cinza rounded' onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}>
+            <option value="" selected disabled >Selecione uma Categoria</option>
             {categorias.map((categoria) => (
               <>
                 <option value={categoria.id} >{categoria.categoria}</option>
@@ -200,9 +200,11 @@ function FormularioProduto() {
             ))}
           </select>
         </div>
-        <button disabled={carregandoCategoria} type='submit' className='rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800 text-white font-bold w-1/2 mx-auto block py-2'>
+        <div className='pt-4 pb-12'>
+        <button disabled={carregandoCategoria} type='submit' className='rounded disabled:bg-slate-200 bg-azul-claro hover:bg-verde text-white font-bold w-1/2 mx-auto block py-2'>
           {carregandoCategoria ? <span>Carregando</span> : id !== undefined ? 'Editar' : 'Cadastrar'}
-        </button>
+        </button>          
+        </div>
       </form>
     </div>
   );

@@ -98,38 +98,38 @@ function FormularioCategoria() {
 
     return (
         <div className="container flex flex-col items-center justify-center mx-auto">
-            <h1 className="text-4xl text-center my-8">
+            <h1 className="text-verde text-3xl font-semibold uppercase text-center my-8">
                 {id === undefined ? 'Cadastre um novo categoria' : 'Editar categoria'}
             </h1>
 
             <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoCategoria}>
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="categoria">Descrição da categoria</label>
+                    <label htmlFor="categoria" className='text-base font-medium'>Descrição da categoria</label>
                     <input
                         type="text"
                         placeholder="Administração de Empresas"
                         name='categoria'
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="border-2 border-slate-700 hover:border-cinza rounded p-2"
                         value={categoria.categoria}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="tipo">Descrição do tipo</label>
+                <div className="flex flex-col gap-2 pb-4">
+                    <label htmlFor="tipo" className='text-base font-medium'>Descrição do tipo</label>
                     <select
                         name="tipo"
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="border-2  border-slate-700 hover:border-cinza rounded p-2"
                         value={categoria.tipo}
                         onChange={(e: ChangeEvent<HTMLSelectElement>) => atualizarEstado(e)}
                     >
-                        <option value="" disabled>Selecione o tipo</option>
+                        <option value="" selected disabled>Selecione o tipo</option>
                         <option value="Livre">Curso Livre</option>
                         <option value="Profissionalizante">Curso Profissionalizante</option>
                     </select>
                 </div>
                 <button
-                    className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block"
+                    className="rounded text-slate-100 bg-azul-claro hover:bg-verde w-1/2 py-2 mx-auto block"
                     type="submit"
                 >
                     {id === undefined ? 'Cadastrar' : 'Editar'}
