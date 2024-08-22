@@ -47,7 +47,7 @@ function ProdutoPage() {
   }, [id]);
 
   const notaAvaliacao = Math.random() * (5 - 4.2) + 4.2;
-  const quantidadeAvaliaçoes = Math.random() * (360 - 150) + 150;
+  const quantidadeAvaliacoes = Math.random() * (360 - 150) + 150;
 
 
   const imageBaseUrl = "../../src/assets/produtos";
@@ -83,6 +83,7 @@ function ProdutoPage() {
               <h1 className="text-3xl font-bold text-gray-900 dark:text-verde">
                 {produto.nome}
               </h1>
+              <p>{produto.categoria?.categoria}</p>
               <div className="mt-4 sm:items-center sm:gap-4 sm:flex">
                 <p className="text-lg font-bold text-gray-900 sm:text-xl dark:text-black">
                   R${produto.preco}
@@ -105,7 +106,7 @@ function ProdutoPage() {
                     href="#"
                     className="text-sm font-medium leading-none text-gray-900 underline hover:no-underline dark:text-black"
                   >
-                    {quantidadeAvaliaçoes.toFixed(0)} Avaliações
+                    {quantidadeAvaliacoes.toFixed(0)} Avaliações
                   </a>
                 </div>
               </div>

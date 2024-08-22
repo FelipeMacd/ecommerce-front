@@ -17,8 +17,8 @@ function ListaProdutos() {
 
   useEffect(() => {
     if (token === '') {
-      toastAlerta('Você precisa estar logado', 'info');
-      navigate('/');
+      toastAlerta('Você precisa estar logado', 'erro');
+      navigate('/login');
     }
   }, [token]);
 

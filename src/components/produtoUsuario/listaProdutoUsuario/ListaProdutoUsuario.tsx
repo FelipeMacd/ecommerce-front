@@ -7,7 +7,7 @@ import { buscar } from '../../../service/Service';
 import CardProdutoUsuario from '../cardProdutoUsuario/CardProdutoUsuario';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
-function ListaProdutos() {
+function ListaProdutosUsuario() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
 
   let navigate = useNavigate();
@@ -61,4 +61,4 @@ function ListaProdutos() {
   );
 }
 
-export default ListaProdutos;
+export default ListaProdutosUsuario;

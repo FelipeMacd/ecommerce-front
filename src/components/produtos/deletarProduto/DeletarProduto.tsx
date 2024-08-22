@@ -44,7 +44,7 @@ function DeletarProduto() {
   }, [id]);
 
   function retornar() {
-    navigate("/produtos");
+    navigate("/produtosAdm");
   }
 
   async function deletarProduto() {
