@@ -18,7 +18,7 @@ function ListaProdutos() {
   useEffect(() => {
     if (token === '') {
       toastAlerta('Você precisa estar logado', 'erro');
-      navigate('/');
+      navigate('/login');
     }
   }, [token]);
 

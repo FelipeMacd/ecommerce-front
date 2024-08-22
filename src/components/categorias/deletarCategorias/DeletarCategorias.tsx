@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../../../contexts/AuthContext";
-import Categoria from "../../../models/Categoria";
-import { buscar, deletar } from "../../../service/Service";
 import { toastAlerta } from "../../../utils/toastAlerta";
+import { buscar, deletar } from "../../../service/Service";
+import Categoria from "../../../models/Categoria";
 
 function DeletarCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
@@ -104,7 +104,7 @@ function DeletarCategoria() {
                   </h4>
                   <div className="mt-2">
                     <p className="text-sm text-black">
-                        Você tem certeza de que deseja apagar a categoria <span className="font-bold">{categoria.categoria}</span> do tipo <b>{categoria.tipo}</b>? Essa ação não poderá ser desfeita.
+                        Você tem certeza de que deseja apagar a categoria <span className="font-bold">{categoria.categoria}</span> do tipo <span className="font-bold">{categoria.tipo}</span>? Essa ação não poderá ser desfeita.
                     </p>
                   </div>
                 </div>

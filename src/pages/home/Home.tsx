@@ -1,9 +1,6 @@
-import { useContext, useEffect } from 'react';
 import home from '../../assets/home.jpg';
 import './Home.css';
-import ListaProdutos from '../../components/produtos/listaProdutos/ListaProduto';
-import ModalProdutos from '../../components/produtos/modalProdutos/ModalProdutos';
-
+import { Link } from 'react-router-dom';
 
 function Home() {
 
@@ -18,13 +15,10 @@ function Home() {
                     <p className="text-azul-claro font-medium max-w-xl leading-relaxed sm:mx-auto lg:ml-0">
                     Aprenda,  Inspire, conquiste: descubra o poder que há em você!
                     </p>
-                    <div className="pt-10 items-center justify-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex lg:justify-start">
-                        <a href="javascript:void(0)" className="px-7 py-3 w-full bg-white text-gray-800 text-center rounded-md shadow-md block sm:w-auto">
-                            aaaaaaaaaaa
-                        </a>
-                        <a href="javascript:void(0)" className="px-7 py-3 w-full bg-gray-700 text-gray-200 text-center rounded-md block sm:w-auto">
+                    <div className="pt-8 items-center justify-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex lg:justify-start">
+                        <Link to="/produtos" className="px-7 py-3 w-full font-semibold bg-azul-claro text-white text-center hover:bg-verde rounded-md block sm:w-auto">
                           Nossos cursos
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="flex-1 text-center mt-7 lg:mt-0 lg:ml-3">

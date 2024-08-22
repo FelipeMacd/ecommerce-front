@@ -21,7 +21,7 @@ function Footer() {
                 </h2>
                 <ul className="text-cinza font-medium">
                   <li className="mb-4">
-                    <Link to="" className="hover:text-salmao">
+                    <Link to="/cadastroCategoria" className="hover:text-salmao">
                       Adicionar Categoria
                     </Link>
                   </li>
@@ -42,7 +42,7 @@ function Footer() {
                 <ul className="text-cinza font-medium">
                   <li className="mb-4">
                     <Link
-                      to=""
+                      to="/cadastroProduto"
                       className="hover:text-salmao "
                     >
                       Adicionar Curso
