@@ -8,4 +8,5 @@ export default interface Produto {
     preco: number;
     instrutor: string;
     categoria: Categoria | null;
+    usuario?: Usuario | null;
 }
