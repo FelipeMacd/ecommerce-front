@@ -12,6 +12,7 @@ import SobreNos from "./pages/sobre/SobreNos"
 import Login from "./pages/login/Login"
 import Cadastro from "./pages/cadastro/Cadastro"
 import Perfil from "./pages/perfil/Perfil";
+import NossoTime from "./pages/time/NossoTime"
 
 import ListaCategoria from "./components/categorias/listaCategorias/ListaCategorias"
 import FormularioCategoria from "./components/categorias/formularioCategorias/FormularioCategorias"
@@ -41,6 +42,7 @@ function App() {
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/contato" element={<Contato />} />
               <Route path="/sobrenos" element={<SobreNos />} />
+              <Route path="/nossotime" element={<NossoTime />} />
               <Route path="/categorias" element={<ListaCategoriaUsuario />} />
               <Route path="/categoriasAdm" element={<ListaCategoria />} />
               <Route path="/cadastroCategoria" element={<FormularioCategoria />} />

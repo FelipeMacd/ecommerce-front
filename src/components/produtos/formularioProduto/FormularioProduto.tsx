@@ -88,7 +88,7 @@ function FormularioProduto() {
   }
 
   function retornar() {
-    navigate('/produtos');
+    navigate('/produtosAdm');
   }
 
   async function gerarNovaProduto(e: ChangeEvent<HTMLFormElement>) {
@@ -195,7 +195,7 @@ function FormularioProduto() {
             <option value="" selected disabled >Selecione uma Categoria</option>
             {categorias.map((categoria) => (
               <>
-                <option value={categoria.id} >{categoria.categoria}</option>
+                <option value={categoria.id} >{categoria.categoria} - {categoria.tipo}</option>
               </>
             ))}
           </select>

@@ -51,7 +51,7 @@ function ProdutoPage() {
 
 
   const imageBaseUrl = "../../src/assets/produtos";
-  const imageUrl = `${imageBaseUrl}/${produto.id}.jpg`;
+  const imageUrl = `${imageBaseUrl}/${produto.id}.png`;
 
   return (
     <>

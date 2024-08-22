@@ -55,13 +55,13 @@ function Footer() {
                 <h2 className="mb-4 text-lg font-semibold text-rosa-claro">Projeto</h2> 
                 <ul className="text-cinza">
                   <li className="mb-2">
-                    <Link to="/sobrenos" onClick={scrollToTop} className="hover:text-rosa-claro">
-                      Sobre Nós
+                    <Link to="/contato" onClick={scrollToTop} className="hover:text-rosa-claro">
+                      Contato
                     </Link>
                   </li>
                   <li>
-                    <Link to="/contato" onClick={scrollToTop} className="hover:text-rosa-claro">
-                      Contato
+                    <Link to="/nossotime" onClick={scrollToTop} className="hover:text-rosa-claro">
+                      Nosso time
                     </Link>
                   </li>
                 </ul>
