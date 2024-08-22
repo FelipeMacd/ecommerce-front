@@ -20,6 +20,7 @@ import DeletarProduto from "./components/produtos/deletarProduto/DeletarProduto"
 import ProdutoPage from "./pages/produto/ProdutoPage"
 import CarrinhoCompra from "./pages/carrinho/CarrinhoCompra"
 import ListaCategoriaUsuario from "./components/categoriasUsuario/listaCategoriaUsuario/ListaCategoriaUsuario"
+import Perfil from "./pages/perfil/Perfil";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
               <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
               <Route path="/produto/:id" element={<ProdutoPage />} />
               <Route path="/carrinho/produto/:id" element={<CarrinhoCompra />} />
+              <Route path="/perfil" element={<Perfil />} />
             </Routes>
           </div>
           <Footer />
