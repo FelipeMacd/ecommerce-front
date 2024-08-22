@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Menu } from '@headlessui/react';
 import { UserIcon } from '@heroicons/react/24/outline';
+import { toastAlerta } from '../../utils/toastAlerta';
 
 const navigation = [
   { name: "Cursos", link: "/produtos", current: false },
@@ -20,7 +21,7 @@ function Navbar() {
 
   function logout() {
     handleLogout();
-    alert('Usuário deslogado com sucesso');
+    toastAlerta('Usuário deslogado com sucesso', 'info');
     navigate('/login');
   }
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toastAlerta } from '../../utils/toastAlerta';
 
 function Contato() {
 
@@ -15,7 +16,7 @@ function Contato() {
       return;
     }
 
-    alert('Mensagem enviada com sucesso!');
+    toastAlerta('Mensagem enviada com sucesso!', 'sucesso');
 
   };
 
