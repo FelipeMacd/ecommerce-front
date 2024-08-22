@@ -11,6 +11,7 @@ import Contato from "./pages/contato/Contato"
 import SobreNos from "./pages/sobre/SobreNos"
 import Login from "./pages/login/Login"
 import Cadastro from "./pages/cadastro/Cadastro"
+import Perfil from "./pages/perfil/Perfil";
 
 import ListaCategoria from "./components/categorias/listaCategorias/ListaCategorias"
 import FormularioCategoria from "./components/categorias/formularioCategorias/FormularioCategorias"
@@ -53,6 +54,7 @@ function App() {
               <Route path="/produto/:id" element={<ProdutoPage />} />
               <Route path="/carrinho/produto/:id" element={<CarrinhoCompra />} />
               <Route path="/compraRealizadaComSucesso" element={<CompraRealizada />} />
+              <Route path="/perfil" element={<Perfil />} />              
             </Routes>
           </div>
           <Footer />

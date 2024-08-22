@@ -11,7 +11,7 @@ function Footer() {
         <div className="container mx-auto px-6 py-8">
           <div className="flex flex-wrap justify-between">
 
-            <div className="w-full sm:w-1/3 mb-6">
+            <div className="w-full sm:w-1/2 mb-6">
               <Link to="/home" onClick={scrollToTop} className="flex items-center">
                 <span className="text-3xl font-bold uppercase text-rosa-claro">Mulheres em Foco</span>
               </Link>
@@ -20,7 +20,7 @@ function Footer() {
               </p>
             </div>
 
-            <div className="w-full sm:w-2/3 flex justify-between">
+            <div className="w-full sm:w-1/2 flex justify-between">
               <div>
                 <h2 className="mb-4 text-lg font-semibold text-rosa-claro">Categorias</h2>
                 <ul className="text-cinza">
