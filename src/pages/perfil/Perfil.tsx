@@ -18,19 +18,23 @@ function Perfil() {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center h-screen gap-8">
       <div className="flex flex-col justify-center items-start text-left lg:w-1/3 p-6">
-        <h2 className="text-4xl font-bold text-verde mb-4">Perfil</h2>
+        <h2 className="text-6xl font-bold text-verde mb-4">Perfil</h2>
 
         <div className="mb-4">
-          <p className="text-lg font-semibold">NOME</p>
+          <p className="text-xl font-semibold uppercase">Nome</p>
           <p className="text-lg text-gray-700">
             {usuario.nome}
           </p>
         </div>
 
         <div className="mb-4">
-          <p className="text-lg font-semibold">EMAIL</p>
+          <p className="text-xl font-semibold uppercase">Email</p>
           <p className="text-lg text-gray-700">{usuario.usuario}</p>
         </div>
+
+        <button className="mt-6 bg-azul-claro hover:bg-verde text-white font-bold text-xl py-2 px-4 rounded uppercase">
+          Meus Cursos
+        </button>
 
         
       </div>
@@ -43,6 +47,8 @@ function Perfil() {
             className="object-cover w-full h-full rounded-full"
           />
         </div>
+
+        
       </div>
     </div>
   );
