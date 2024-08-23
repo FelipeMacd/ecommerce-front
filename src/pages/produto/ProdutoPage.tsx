@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ThreeDots } from 'react-loader-spinner';
+import { ColorRing } from 'react-loader-spinner';
 import { AuthContext } from "../../contexts/AuthContext";
 import { Link } from "react-router-dom";
 import Produto from "../../models/Produto";
@@ -56,7 +56,7 @@ function ProdutoPage() {
   return (
     <>
      {loading && (
-        <ThreeDots
+        <ColorRing
           visible={true}
           height="50"
           width="50"

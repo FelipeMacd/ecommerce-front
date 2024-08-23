@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Dna } from 'react-loader-spinner';
+import { ColorRing } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Produto from '../../../models/Produto';
@@ -43,10 +43,10 @@ function ListaProdutosUsuario() {
   return (
     <>
       {produtos.length === 0 && (
-        <Dna
+        <ColorRing
           visible={true}
-          height="200"
-          width="200"
+          height="100"
+          width="100"
           ariaLabel="dna-loading"
           wrapperStyle={{}}
           wrapperClass="dna-wrapper mx-auto"
