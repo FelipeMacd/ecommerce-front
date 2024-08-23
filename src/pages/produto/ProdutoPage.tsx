@@ -58,8 +58,8 @@ function ProdutoPage() {
      {loading && (
         <ColorRing
           visible={true}
-          height="50"
-          width="50"
+          height="100"
+          width="100"
           ariaLabel="dna-loading"
           wrapperStyle={{}}
           wrapperClass="dna-wrapper mx-auto"

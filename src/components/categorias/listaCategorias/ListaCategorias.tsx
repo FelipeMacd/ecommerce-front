@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { TailSpin } from "react-loader-spinner";
+import { ColorRing } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
@@ -41,16 +41,14 @@ function ListaCategoria() {
                 return (
                   <>
                     {categorias.length === 0 && (
-                      <TailSpin
+                      <ColorRing
                       visible={true}
-                      height="80"
-                      width="80"
-                      color="#4fa94d"
-                      ariaLabel="tail-spin-loading"
-                      radius="1"
+                      height="100"
+                      width="100"
+                      ariaLabel="dna-loading"
                       wrapperStyle={{}}
-                      wrapperClass=""
-                      />
+                      wrapperClass="dna-wrapper mx-auto"
+                    />
                     )}
                     <div className="flex justify-center w-full my-4">
                       <div className="container flex flex-col">

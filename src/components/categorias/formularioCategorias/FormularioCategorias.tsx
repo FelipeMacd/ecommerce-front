@@ -29,12 +29,12 @@ function FormularioCategoria() {
         }
     }, [id])
 
-    function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+    function atualizarEstado(e: ChangeEvent<HTMLSelectElement | HTMLInputElement>) {
         setCategoria({
             ...categoria,
             [e.target.name]: e.target.value
         })
-
+    
         console.log(JSON.stringify(categoria))
     }
 
