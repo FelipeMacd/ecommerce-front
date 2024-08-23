@@ -45,7 +45,7 @@ function CarrinhoCompra() {
     }
   }, [id]);
 
-  const imageBaseUrl = "../../src/assets/produtos";
+  const imageBaseUrl = "/produtos";
   const imageUrl = `${imageBaseUrl}/${produto.id}.png`;
 
   return (

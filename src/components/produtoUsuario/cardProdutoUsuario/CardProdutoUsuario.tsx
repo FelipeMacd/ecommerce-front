@@ -9,7 +9,7 @@ function CardProdutoUsuario({ produto }: CardProdutoProps) {
   const notaAvaliacao = Math.random() * (5 - 4.2) + 4.2;
   const quantidadeAvaliaçoes = Math.random() * (360 - 150) + 150;
 
-  const imageBaseUrl = "../../src/assets/produtos";
+  const imageBaseUrl = "/produtos";
   const imageUrl = `${imageBaseUrl}/${produto.id}.png`;
 
   return (
