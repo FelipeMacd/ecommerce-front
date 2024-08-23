@@ -30,7 +30,7 @@ function Navbar() {
       <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto py-3">
 
         <Link to="/home" className="flex items-center">
-          <p className='text-medium font-bold uppercase text-white hover:text-salmao'>Mulheres em Foco</p>
+          <p className='text-2xl font-dm-serif uppercase text-white hover:text-salmao'>Mulheres em Foco</p>
         </Link>
 
         <button

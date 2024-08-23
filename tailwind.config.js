@@ -14,6 +14,9 @@ module.exports = {
         'cinza': '#c2c9cd'
       }
     },
+    fontFamily: {
+      'dm-serif': ['DM Serif text', 'serif']
+    }
   },
   plugins: [],
 }
